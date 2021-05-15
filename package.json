@@ -1,0 +1,41 @@
+{
+	"name": "css-vars-from-json",
+	"version": "1.0.0",
+	"description": "Generates css custom properties (variables) from json or javascript object.",
+	"source": "src/index.ts",
+	"main": "dist/index.js",
+	"module": "dist/index.module.js",
+	"umd:main": "dist/index.umd.js",
+	"repository": "git@github.com:TimoBechtel/css-vars-from-json.git",
+	"author": "Timo Bechtel <hi@timobechtel.com>",
+	"license": "MIT",
+	"keywords": [
+		"css",
+		"css properties",
+		"json theme",
+		"properties",
+		"generate",
+		"json",
+		"styles"
+	],
+	"files": [
+		"dist",
+		"package.json"
+	],
+	"scripts": {
+		"prepack": "npm run build",
+		"build": "microbundle --no-sourcemap",
+		"dev": "microbundle watch --no-sourcemap",
+		"test": "jest"
+	},
+	"devDependencies": {
+		"@semantic-release/changelog": "^5.0.1",
+		"@semantic-release/git": "^9.0.0",
+		"@types/jest": "^26.0.23",
+		"jest": "^26.6.3",
+		"microbundle": "^0.13.0",
+		"semantic-release": "^17.4.3",
+		"ts-jest": "^26.5.6",
+		"typescript": "^4.2.4"
+	}
+}
