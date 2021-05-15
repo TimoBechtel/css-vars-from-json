@@ -83,6 +83,38 @@ console.log(theme);
 // => "--colors-primary: red;--colors-secondary: blue;--shadows-main: box-shadow: 1px 1px black;--font-family-primary: Arial;"
 ```
 
+### Svelte example
+ThemeProvider.svelte
+```html
+<script>
+	import { theme } from './my-design-system';
+	import generateCSSVariables from 'css-vars-from-json';
+
+	const style = generateCSSVariables(theme);
+</script>
+
+<div {style}>
+	<slot />
+</div>
+```
+
+App.svelte
+```html
+<script>
+	import ThemeProvider from './ThemeProvider.svelte';
+</script>
+
+<ThemeProvider>
+	<h1>Hi</h1>
+</ThemeProvider>
+
+<style>
+	h1 {
+		color: var(--color-primary);
+	}
+</style>
+```
+
 ## Run tests
 
 ```sh
