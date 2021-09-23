@@ -22,6 +22,8 @@ function generateVariables(path: string, object: JsonObject): string {
 
 function join(path: string, key: string): string {
 	if (!path) return key;
-	if(key == '__default') return path; // my{color:{default: red}} ==  --my-color: red;  
+	// ignore __default property and use root key instead
+	// e.g. blue: { default: "blue", light: "lightblue" } => --blue: blue; --blue-light: lightblue;
+	if (key === '__default') return path;
 	return `${path}-${key}`;
 }
