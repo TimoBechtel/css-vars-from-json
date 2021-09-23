@@ -65,7 +65,11 @@ import cssVars from 'css-vars-from-json';
 const theme = cssVars({
 	colors: {
 		primary: 'red',
-		secondary: 'blue',
+		secondary: {
+			__default: 'blue',
+			// base value, will be rendered as --colors-secondary: blue
+			light: 'lightblue',
+		},
 	},
 	shadows: {
 		main: 'box-shadow: 1px 1px black',
@@ -80,11 +84,13 @@ const theme = cssVars({
 document.body.setAttribute('style', theme);
 
 console.log(theme);
-// => "--colors-primary: red;--colors-secondary: blue;--shadows-main: box-shadow: 1px 1px black;--font-family-primary: Arial;"
+// => "--colors-primary: red;--colors-secondary: blue;--colors-secondary-light: lightblue;--shadows-main: box-shadow: 1px 1px black;--font-family-primary: Arial;"
 ```
 
 ### Svelte example
+
 ThemeProvider.svelte
+
 ```html
 <script>
 	import { theme } from './my-design-system';
@@ -99,6 +105,7 @@ ThemeProvider.svelte
 ```
 
 App.svelte
+
 ```html
 <script>
 	import ThemeProvider from './ThemeProvider.svelte';
