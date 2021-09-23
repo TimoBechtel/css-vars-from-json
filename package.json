@@ -1,6 +1,6 @@
 {
 	"name": "css-vars-from-json",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Generates css custom properties (variables) from json or javascript object.",
 	"source": "src/index.ts",
 	"main": "dist/index.js",
